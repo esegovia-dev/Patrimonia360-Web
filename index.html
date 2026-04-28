@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Patrimonia 360 — World Heritage in your pocket</title>
+	<meta name="description" content="Discover the cultural, historical and natural heritage around you. Free Android app with audio guide, UNESCO World Heritage map and total privacy.">
+	<meta property="og:title" content="Patrimonia 360 — World Heritage in your pocket">
+	<meta property="og:description" content="Discover the cultural and historical heritage around you. Free Android app, no ads, no tracking.">
+	<meta property="og:type" content="website">
+	<style>
+		:root {
+			--green: #1B5E20;
+			--green-light: #2E7D32;
+			--green-deep: #0d3a10;
+			--orange: #F57C00;
+			--orange-light: #ffb74d;
+			--text: #1f2d20;
+			--bg: #f7faf7;
+			--card: #ffffff;
+			--muted: #5a6b5d;
+			--border: #d6e0d8;
+		}
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body {
+			margin: 0;
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			background: var(--bg);
+			color: var(--text);
+			line-height: 1.6;
+		}
+
+		/* HERO */
+		.hero {
+			background: linear-gradient(135deg, var(--green) 0%, var(--green-deep) 100%);
+			color: white;
+			padding: 64px 24px 72px;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+		}
+		.hero::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background-image: radial-gradient(circle at 20% 30%, rgba(245,124,0,0.12) 0%, transparent 50%),
+								radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06) 0%, transparent 50%);
+			pointer-events: none;
+		}
+		.hero-content {
+			position: relative;
+			max-width: 720px;
+			margin: 0 auto;
+		}
+		.hero img.logo {
+			width: 140px;
+			height: 140px;
+			border-radius: 28px;
+			box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+			margin-bottom: 24px;
+		}
+		.hero h1 {
+			font-size: 44px;
+			font-weight: 800;
+			margin: 0 0 8px 0;
+			letter-spacing: 0.3px;
+		}
+		.hero .tagline {
+			font-style: italic;
+			font-size: 22px;
+			color: var(--orange-light);
+			margin: 0 0 16px 0;
+			font-family: Georgia, "Times New Roman", serif;
+		}
+		.hero .underline {
+			display: block;
+			width: 200px;
+			height: 1px;
+			background: var(--orange);
+			margin: 0 auto 32px;
+			opacity: 0.6;
+		}
+		.hero p.lead {
+			font-size: 17px;
+			max-width: 560px;
+			margin: 0 auto 32px;
+			opacity: 0.92;
+		}
+		.hero .find-us {
+			display: inline-block;
+			background: rgba(255,255,255,0.1);
+			border: 1px solid rgba(255,255,255,0.25);
+			color: white;
+			padding: 14px 26px;
+			border-radius: 10px;
+			font-size: 15px;
+			line-height: 1.5;
+			max-width: 480px;
+		}
+		.hero .find-us strong {
+			color: var(--orange-light);
+			font-weight: 700;
+		}
+		.hero .find-us small {
+			display: block;
+			margin-top: 4px;
+			font-size: 13px;
+			opacity: 0.8;
+			font-style: italic;
+		}
+
+		/* SECTIONS */
+		main {
+			max-width: 960px;
+			margin: 0 auto;
+			padding: 48px 24px;
+		}
+		section {
+			margin-bottom: 56px;
+		}
+		section h2 {
+			color: var(--green);
+			font-size: 28px;
+			margin: 0 0 8px 0;
+			text-align: center;
+		}
+		section .subtitle {
+			text-align: center;
+			color: var(--muted);
+			font-size: 15px;
+			margin: 0 auto 32px;
+			max-width: 580px;
+		}
+
+		/* FEATURES GRID */
+		.features {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+			gap: 20px;
+		}
+		.feature {
+			background: var(--card);
+			border: 1px solid var(--border);
+			border-radius: 14px;
+			padding: 26px 22px;
+			text-align: center;
+			transition: transform 0.2s ease, box-shadow 0.2s ease;
+		}
+		.feature:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 8px 20px rgba(27,94,32,0.08);
+		}
+		.feature .icon {
+			font-size: 36px;
+			margin-bottom: 12px;
+			display: block;
+		}
+		.feature h3 {
+			color: var(--green);
+			font-size: 17px;
+			margin: 0 0 8px 0;
+		}
+		.feature p {
+			margin: 0;
+			font-size: 14px;
+			color: var(--muted);
+		}
+
+		/* PRIVACY BLOCK */
+		.privacy-block {
+			background: white;
+			border: 2px solid var(--orange);
+			border-radius: 14px;
+			padding: 32px 28px;
+			text-align: center;
+		}
+		.privacy-block h2 {
+			margin-top: 0;
+		}
+		.privacy-block p {
+			max-width: 560px;
+			margin: 0 auto 20px;
+			color: var(--text);
+			font-size: 15px;
+		}
+		.privacy-block a.link-btn {
+			display: inline-block;
+			background: var(--orange);
+			color: white;
+			padding: 12px 24px;
+			border-radius: 8px;
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 15px;
+			transition: background 0.15s ease;
+		}
+		.privacy-block a.link-btn:hover {
+			background: #e06a00;
+		}
+
+		/* CONTACT */
+		.contact {
+			text-align: center;
+			background: var(--card);
+			border: 1px solid var(--border);
+			border-radius: 14px;
+			padding: 32px 24px;
+		}
+		.contact a {
+			color: var(--orange);
+			font-weight: 600;
+			text-decoration: none;
+		}
+		.contact a:hover { text-decoration: underline; }
+
+		/* FOOTER */
+		footer {
+			background: var(--green-deep);
+			color: rgba(255,255,255,0.7);
+			text-align: center;
+			padding: 24px 16px;
+			font-size: 13px;
+		}
+		footer .heart { color: var(--orange); }
+		footer a { color: var(--orange-light); text-decoration: none; }
+		footer a:hover { text-decoration: underline; }
+
+		/* MOBILE */
+		@media (max-width: 600px) {
+			.hero { padding: 48px 20px 56px; }
+			.hero h1 { font-size: 32px; }
+			.hero .tagline { font-size: 18px; }
+			.hero img.logo { width: 110px; height: 110px; }
+			section h2 { font-size: 24px; }
+		}
+	</style>
+</head>
+<body>
+
+<header class="hero">
+	<div class="hero-content">
+		<img src="ic_app_logo.png" alt="Patrimonia 360 logo" class="logo">
+		<h1>Patrimonia 360</h1>
+		<p class="tagline">World Heritage in your pocket</p>
+		<span class="underline"></span>
+		<p class="lead">Discover the cultural, historical and natural heritage right around you. Wherever you are, find nearby churches, palaces, gardens, museums, monuments and viewpoints — with photos, information and an automatic audio guide.</p>
+
+		<div class="find-us">
+			Search for <strong>Patrimonia 360</strong> on the Google Play Store.
+			<small>Free Android app — no accounts, no ads, no tracking.</small>
+		</div>
+	</div>
+</header>
+
+<main>
+
+	<section>
+		<h2>What is Patrimonia 360?</h2>
+		<p class="subtitle">An independent Android app to bring you closer to the heritage that surrounds you, wherever you go.</p>
+
+		<div class="features">
+			<div class="feature">
+				<span class="icon">🏛️</span>
+				<h3>Discover heritage nearby</h3>
+				<p>Six categories: churches, palaces, gardens, museums, monuments and viewpoints. With real photos, ratings and reviews.</p>
+			</div>
+			<div class="feature">
+				<span class="icon">🌍</span>
+				<h3>UNESCO World Heritage map</h3>
+				<p>Browse the entire UNESCO World Heritage list on an interactive world map. Works offline thanks to local caching.</p>
+			</div>
+			<div class="feature">
+				<span class="icon">🎧</span>
+				<h3>Automatic audio guide</h3>
+				<p>The app reads the Wikipedia article aloud while you walk to the place, so you arrive already informed. No subscription, no downloads.</p>
+			</div>
+			<div class="feature">
+				<span class="icon">🔒</span>
+				<h3>Privacy first</h3>
+				<p>No accounts, no advertising, no tracking, no analytics. Your location never leaves your device beyond the search itself.</p>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="privacy-block">
+			<h2>Your privacy, our priority</h2>
+			<p>Patrimonia 360 does not collect, store or share any personal data. There are no user accounts, no advertising tracking, and no hidden analytics. Read our full Privacy Policy for the details.</p>
+			<a href="PrivacyPolicy.html" class="link-btn">Read the Privacy Policy</a>
+		</div>
+	</section>
+
+	<section>
+		<h2>Get in touch</h2>
+		<p class="subtitle">Got an idea, found a glitch, or just want to say hi? We'd love to hear from you.</p>
+		<div class="contact">
+			<p>Drop us an email at <a href="mailto:patrimonia360app@gmail.com">patrimonia360app@gmail.com</a></p>
+			<p style="margin-top:8px; color: var(--muted); font-size: 14px;">Developed with care by ESM &amp; MLP Independent Studio.</p>
+		</div>
+	</section>
+
+</main>
+
+<footer>
+	<p>© 2026 ESM &amp; MLP Independent Studio · Made with <span class="heart">♥</span> for travellers and curious minds.</p>
+	<p><a href="PrivacyPolicy.html">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html>
