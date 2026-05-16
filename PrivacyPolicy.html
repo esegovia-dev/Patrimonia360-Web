@@ -160,7 +160,7 @@
 <main>
 
 	<div class="meta">
-		<p style="margin:0;"><strong>Last updated:</strong> 28 April 2026<br>
+		<p style="margin:0;"><strong>Last updated:</strong> 16 May 2026<br>
 		<strong>Applies to:</strong> Patrimonia 360 mobile application for Android (package <code>com.patrimonia360app.app</code>).</p>
 	</div>
 
@@ -175,6 +175,7 @@
 		<h2>2. Our approach to privacy</h2>
 		<p>Patrimonia 360 is built around a simple principle: <strong>we do not want your personal data</strong>. The application has no user accounts, no login, no advertising, no behavioural tracking, no hidden analytics and no servers of our own. We do not store any personal information about you, anywhere.</p>
 		<p>The only personal data the app processes is your device location, and only at the moment you actively use the search feature. This Privacy Policy explains exactly how that works.</p>
+		<p>The app does, however, contain affiliate links to third-party activity providers. We don't book anything on your behalf and we don't see what you book; we only send a click-through with an identifier so the partner can attribute it to us. Full details in section 5.</p>
 	</div>
 
 	<div class="card">
@@ -182,15 +183,15 @@
 
 		<h3>3.1. Approximate and precise location</h3>
 		<p>If you grant the location permission, the app reads the current geographic coordinates of your device using Android's standard location services. These coordinates are used <strong>only at the moment of your search</strong>, in order to query third-party services for nearby heritage sites.</p>
-		<p>Location data is processed <strong>in memory only</strong>. We do not store it on your device beyond the duration of the current request, and it is never sent to any server controlled by us — because we operate no servers.</p>
+		<p>Location data is processed <strong>in memory only</strong>. We do not store it on your device beyond the duration of the current request, and it is never sent to any server controlled by us — we operate no servers.</p>
 		<p>You can deny the location permission at any time. The app will continue to work, allowing you to manually pick a city or a point on the map to explore.</p>
 
 		<h3>3.2. Local preferences</h3>
 		<p>The app stores a small amount of non-personal configuration data on your device, in private application storage that only Patrimonia 360 can read. This includes:</p>
 		<ul>
 			<li>The selected language (if you have changed it from the system default).</li>
-			<li>Your preferred data source (Wikidata only, Google Places only, or both).</li>
 			<li>A flag indicating whether you have already seen the welcome tutorial.</li>
+			<li>A timestamp used to schedule the optional donation reminder (no personal information is stored, only when the prompt was last shown).</li>
 		</ul>
 		<p>This data never leaves your device and is automatically deleted when you uninstall the application or clear its storage from the system settings.</p>
 
@@ -201,7 +202,7 @@
 			<li>No advertising identifier (AAID, IDFA).</li>
 			<li>No contacts, calendar, photos, files or messages from your device.</li>
 			<li>No usage analytics, crash reports or behavioural metrics.</li>
-			<li>No payment information.</li>
+			<li>No payment information — when you book through an activity partner, the transaction happens entirely on their site, not in our app.</li>
 		</ul>
 	</div>
 
@@ -214,8 +215,9 @@
 		<p>We query <strong>Wikidata</strong>, <strong>Wikipedia</strong> and <strong>Wikimedia Commons</strong> to retrieve information, photos and descriptions of heritage sites near your location. These are the primary data sources of the app.</p>
 		<p>Wikimedia Foundation Privacy Policy: <a href="https://foundation.wikimedia.org/wiki/Privacy_policy" target="_blank" rel="noopener">https://foundation.wikimedia.org/wiki/Privacy_policy</a></p>
 
-		<h3>4.2. Google Places API and Google Maps SDK (Google LLC)</h3>
-		<p>When Wikimedia data is insufficient, or when you open one of the maps inside the app (UNESCO World Heritage map, manual location picker), Patrimonia 360 connects to <strong>Google Places API</strong> and the <strong>Google Maps SDK for Android</strong>. These services receive your approximate or precise location in order to return nearby places, photos, reviews and to render the map tiles.</p>
+		<h3>4.2. Google Maps SDK and Google Play Services (Google LLC)</h3>
+		<p>Patrimonia 360 uses the <strong>Google Maps SDK for Android</strong> to render two maps inside the app: the manual location picker and the UNESCO World Heritage map. These map screens send your approximate location to Google to render the appropriate tiles.</p>
+		<p>The app also uses the standard Android <strong>Geocoder</strong> (provided by Google Play Services on most devices) to convert coordinates into a human-readable city name when you accept the GPS location, and to look up coordinates when you search for a city by name in the location picker.</p>
 		<p>Google Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p>
 
 		<h3>4.3. UNESCO World Heritage dataset</h3>
@@ -224,38 +226,61 @@
 		<h3>4.4. Device text-to-speech engine</h3>
 		<p>The audio guide feature uses the <strong>text-to-speech engine installed on your device</strong> (typically Google Speech Services or the manufacturer's equivalent). The text of the article is read aloud locally on your device. We do not send any text to external servers for synthesis.</p>
 
-		<h3>4.5. PayPal (only if you choose to donate)</h3>
+		<h3>4.5. Activity providers (affiliate partners)</h3>
+		<p>From the side tab of the app you can browse activities, tours and free walks from third-party partners. The partners we currently integrate with are:</p>
+		<ul>
+			<li><strong>Civitatis</strong> — <a href="https://www.civitatis.com/en/privacy/" target="_blank" rel="noopener">civitatis.com/en/privacy</a></li>
+			<li><strong>GetYourGuide</strong> — <a href="https://www.getyourguide.com/privacy_policy" target="_blank" rel="noopener">getyourguide.com/privacy_policy</a></li>
+			<li><strong>Viator</strong> (part of Tripadvisor) — <a href="https://www.viator.com/privacy" target="_blank" rel="noopener">viator.com/privacy</a></li>
+		</ul>
+		<p>When you tap a partner button, the app queries that partner's public autocomplete endpoint with the city name (and only the city name, never your coordinates) and shows you the suggestions inside the panel. Picking a suggestion — or pressing the button when no suggestions are returned — opens the partner's website or app in your browser, with our affiliate identifier appended to the URL (see section 5).</p>
+		<p><strong>We do not process any booking, payment or personal data of yours.</strong> Everything that happens after the redirect is between you and the partner, under their own terms and privacy policy.</p>
+
+		<h3>4.6. PayPal (only if you choose to donate)</h3>
 		<p>Patrimonia 360 includes an optional donation button that opens a PayPal.me link in your browser or PayPal app. <strong>The application itself does not process any payment data.</strong> If you choose to donate, the transaction takes place entirely on PayPal's infrastructure and is governed by their own privacy policy.</p>
 		<p>PayPal Privacy Statement: <a href="https://www.paypal.com/legalhub/privacy-full" target="_blank" rel="noopener">https://www.paypal.com/legalhub/privacy-full</a></p>
 
-		<h3>4.6. Email client (only if you choose to contact us)</h3>
+		<h3>4.7. Email client (only if you choose to contact us)</h3>
 		<p>The "Write to us" link in the About section opens your device's email client with our contact address pre-filled. Sending the email is your choice; if you do, the message is delivered through your email provider to our inbox at <code>patrimonia360app@gmail.com</code>, hosted by Google. Google's privacy policy applies to the transit and storage of that message.</p>
 	</div>
 
 	<div class="card">
-		<h2>5. Legal basis for processing</h2>
+		<h2>5. Affiliate links and commercial relationships</h2>
+		<p>Patrimonia 360 is free and has no advertising. The only way the project sustains itself is through <strong>affiliate commissions</strong> earned from a small set of activity partners (Civitatis, GetYourGuide, Viator). What that means in practice:</p>
+		<ul>
+			<li>When you tap a partner button and we redirect you to their website or app, we append a small set of identifiers to the URL (typically a partner ID, plus campaign/medium tags such as <code>pid</code>, <code>mcid</code>, <code>medium</code>, <code>partner_id</code> or <code>aid</code> depending on the partner). These identifiers do not contain any data about you — they identify <em>us</em> as the source of the click.</li>
+			<li>If you decide to book something during that session, the partner credits a small commission to us, at no extra cost to you. The price you see on the partner's site is the same with or without that identifier.</li>
+			<li>We have <strong>no visibility</strong> of what you book, when, for how much, or whether you book at all. We typically see only aggregated, anonymised click and commission counts in each partner's affiliate dashboard.</li>
+			<li>You are under no obligation to book through these links. You can absolutely use the heritage and audio guide features of Patrimonia 360 without ever touching the activities tab.</li>
+		</ul>
+		<p>This disclosure is the affiliate relationship made explicit. If you'd rather not pass an affiliate identifier to a partner, you can search for them yourself from your browser instead of using the button inside the app.</p>
+	</div>
+
+	<div class="card">
+		<h2>6. Legal basis for processing</h2>
 		<p>For users in the European Union, the United Kingdom and other jurisdictions where the General Data Protection Regulation (GDPR) or equivalent legislation applies, the legal bases for the limited processing carried out by Patrimonia 360 are:</p>
 		<ul>
 			<li><strong>Consent (Art. 6.1.a GDPR):</strong> for accessing your device location, requested explicitly through the Android permission system. You can revoke this consent at any time from your device settings.</li>
-			<li><strong>Performance of the service (Art. 6.1.b GDPR):</strong> for processing the location data once you have started a search, in order to provide the nearby heritage sites you requested.</li>
+			<li><strong>Performance of the service (Art. 6.1.b GDPR):</strong> for processing the location data once you have started a search, in order to provide the nearby heritage sites you requested; and for forwarding your search term to the activity partner you tapped, in order to retrieve their suggestions.</li>
+			<li><strong>Legitimate interest (Art. 6.1.f GDPR):</strong> for appending the affiliate identifier when you click through to a partner. The identifier is non-personal; it identifies the app, not you. We rely on this basis to keep the app free and sustainable.</li>
 		</ul>
 	</div>
 
 	<div class="card">
-		<h2>6. International data transfers</h2>
-		<p>Some of the third-party providers listed above (notably Google LLC and Wikimedia Foundation) are based in the United States. When the app sends your location to those services, that data may be processed outside of the European Economic Area. Each provider relies on its own legal mechanisms (Standard Contractual Clauses, adequacy decisions, etc.) to comply with international transfer requirements.</p>
+		<h2>7. International data transfers</h2>
+		<p>Some of the third-party providers listed above (notably Google LLC, Wikimedia Foundation, Tripadvisor/Viator, GetYourGuide and Civitatis) operate from or with infrastructure in the United States or other jurisdictions outside the European Economic Area. When the app sends a request to those services, that request may be processed outside of the EEA. Each provider relies on its own legal mechanisms (Standard Contractual Clauses, adequacy decisions, etc.) to comply with international transfer requirements.</p>
 		<p>We do not transfer any data ourselves, since we do not collect or store any.</p>
 	</div>
 
 	<div class="card">
-		<h2>7. Data retention</h2>
+		<h2>8. Data retention</h2>
 		<p>We do not retain any personal data, because we do not collect any. Location data is processed in memory only and discarded as soon as the search is complete.</p>
 		<p>Local preferences stored on your device persist for as long as the application is installed. Uninstalling the app, or clearing its storage from the system settings, removes them completely.</p>
-		<p>Third-party providers retain data according to their own retention policies, which are linked above.</p>
+		<p>Third-party providers, including the activity partners, retain data according to their own retention policies, which are linked above.</p>
 	</div>
 
 	<div class="card">
-		<h2>8. Your rights</h2>
+		<h2>9. Your rights</h2>
 		<p>Under GDPR and similar regulations, you have the rights of access, rectification, erasure, restriction, portability and objection regarding your personal data. To exercise any of these rights, please contact us at <a href="mailto:patrimonia360app@gmail.com">patrimonia360app@gmail.com</a>.</p>
 		<p>In practice, since Patrimonia 360 does not collect or store personal data on its own infrastructure, there is normally nothing for us to access, rectify or delete. To remove all data the app keeps on your device, you can:</p>
 		<ul>
@@ -266,24 +291,24 @@
 	</div>
 
 	<div class="card">
-		<h2>9. Children's privacy</h2>
+		<h2>10. Children's privacy</h2>
 		<p>Patrimonia 360 is a general-audience application and is not specifically directed at children under 13. We do not knowingly collect any personal data from children. Since the app does not collect personal data from anyone, there is no targeted profiling of any age group. If a parent or guardian believes that their child has provided personal information through any indirect means, please contact us so we can address the situation.</p>
 	</div>
 
 	<div class="card">
-		<h2>10. Security</h2>
+		<h2>11. Security</h2>
 		<p>All network communications between the application and the third-party services listed above are encrypted in transit using HTTPS (TLS). Local preferences are stored in private application storage that is sandboxed by the Android operating system and only accessible to the application itself.</p>
-		<p>Because we do not operate any server and do not store personal data, the surface for a data breach involving us is essentially nil. The security of data once it reaches a third-party provider depends on that provider.</p>
+		<p>Because we do not store personal data, the surface for a data breach involving us is essentially nil. The security of data once it reaches a third-party provider depends on that provider.</p>
 	</div>
 
 	<div class="card">
-		<h2>11. Changes to this Privacy Policy</h2>
+		<h2>12. Changes to this Privacy Policy</h2>
 		<p>We may occasionally update this Privacy Policy to reflect changes in the application, in third-party services or in legal requirements. The "Last updated" date at the top of this page indicates when the most recent revision was made.</p>
 		<p>Material changes that affect how your data is processed will be communicated through the application or its Google Play Store listing before they take effect.</p>
 	</div>
 
 	<div class="card">
-		<h2>12. Contact</h2>
+		<h2>13. Contact</h2>
 		<p>For any question, concern or request regarding this Privacy Policy or the Patrimonia 360 application, please contact us at:</p>
 		<p><strong>Email:</strong> <a href="mailto:patrimonia360app@gmail.com">patrimonia360app@gmail.com</a><br>
 		<strong>Developer:</strong> ESM &amp; MLP Independent Studio</p>
